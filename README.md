@@ -12,3 +12,5 @@ In command prompt type
   
   you can see the result in localhost:3000
   
+ # This app is completly on hooks(functional components) react-redux
+  
