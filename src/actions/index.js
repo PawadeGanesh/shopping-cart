@@ -3,8 +3,6 @@ import {
   ADD_QUANTITY,
   SUBTRACT_QUANTITY,
   REMOVE_ITEM,
-  ADD_SHIPPING,
-  SUB_SHIPPING,
 } from './constant'
 
 export const addToCart = (id) => {
