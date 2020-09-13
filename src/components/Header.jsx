@@ -6,7 +6,7 @@ import { Navbar, NavbarBrand } from 'reactstrap'
 const Header = ({ itemList }) => {
   const history = useHistory()
 
-  const userName = localStorage.getItem('userName')
+  const userName = sessionStorage.getItem('userName')
   const isLoginPage = window.location.pathname === '/'
   if (userName && isLoginPage) {
     return <Redirect to="/main" />
@@ -16,7 +16,7 @@ const Header = ({ itemList }) => {
   }
 
   const handleLogout = () => {
-    localStorage.removeItem('userName')
+    sessionStorage.removeItem('userName')
     history.push('/')
   }
 
