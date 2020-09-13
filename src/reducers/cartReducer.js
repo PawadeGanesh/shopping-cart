@@ -29,6 +29,7 @@ export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_CART: {
       let addedItem = state.items.find((item) => item.id === action.payload)
+      //checking if the action id exists in the addedItems
       let existedItem = state.addedItems.find(
         (item) => action.payload === item.id,
       )
@@ -37,6 +38,7 @@ export const cartReducer = (state = initialState, action) => {
         return { ...state, total: state.total + addedItem.price }
       } else {
         addedItem.quantity = 1
+        //calculating the total
         let newTotal = state.total + addedItem.price
         return {
           ...state,
@@ -58,6 +60,7 @@ export const cartReducer = (state = initialState, action) => {
 
     case SUBTRACT_QUANTITY: {
       let addedItem = state.items.find((item) => item.id === action.payload)
+      //if the qt == 0 then it should be removed
       if (addedItem.quantity === 1) {
         let new_items = state.addedItems.filter(
           (item) => item.id !== action.payload,
@@ -85,7 +88,7 @@ export const cartReducer = (state = initialState, action) => {
       let new_items = state.addedItems.filter(
         (item) => item.id !== action.payload,
       )
-
+      //calculating the total
       let newTotal = state.total - itemToRemove.price * itemToRemove.quantity
       console.log(itemToRemove)
       return {
