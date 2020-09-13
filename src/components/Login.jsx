@@ -10,7 +10,7 @@ const LoginForm = () => {
   const handleSignIn = (e) => {
     e.preventDefault()
     if (username && password) {
-      localStorage.setItem('userName', username)
+      sessionStorage.setItem('userName', username)
       history.push('/')
     }
   }
